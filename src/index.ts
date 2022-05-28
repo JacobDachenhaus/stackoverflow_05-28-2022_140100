@@ -8,7 +8,7 @@ const app = express();
 const port = 3000;
 
 app.use(morgan('tiny'));
-app.get('/', new UserController().List);
+app.get('/api/users', new UserController().List);
 
 async function main() {
   await mongoose.connect(process.env.DB_CONN_STRING!, {

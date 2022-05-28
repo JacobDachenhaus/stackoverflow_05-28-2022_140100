@@ -8,7 +8,7 @@ export default abstract class ResourceController<T> {
   public List(req: Request, res: Response, next: NextFunction) {
     this.model.find({}, (err: any, docs: T[]) => {
       if (err) { return next(err); }
-      res.status(HttpStatusCode.Ok).json(docs);
+      res.status(HttpStatusCode.Ok).json({ data: docs });
     });
   }
 }
